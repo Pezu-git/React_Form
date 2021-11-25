@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const INITIAL_STATE = {
     username: '',
@@ -39,10 +41,10 @@ export function RegisterForm() {
     }
 
     return(
-        <form className="mainForm" onSubmit={onFormSubmit}>
+        <Form onSubmit={onFormSubmit}>
             <div className="RegisterForm-FormControl">
-                <label htmlFor="username">Имя</label>
-                <input 
+                <Form.Label htmlFor="username">Имя</Form.Label>
+                <Form.Control 
                     className="RegisterForm-Input"
                     type="text" 
                     name="username" 
@@ -52,8 +54,8 @@ export function RegisterForm() {
                 />
             </div>
             <div className="RegisterForm-FormControl">
-                <label htmlFor="password">Пароль</label>
-                <input 
+                <Form.Label htmlFor="password">Пароль</Form.Label>
+                <Form.Control 
                     className="RegisterForm-Input"
                     type="text" 
                     name="password" 
@@ -63,8 +65,8 @@ export function RegisterForm() {
                 />
             </div>
             <div className="RegisterForm-FormControl">
-                <label htmlFor="agree">Согласен</label>
-                <input 
+                <Form.Label htmlFor="agree">Согласен</Form.Label>
+                <Form.Check 
                     className="RegisterForm-Checkbox"
                     type="checkbox" 
                     name="agree" 
@@ -76,8 +78,8 @@ export function RegisterForm() {
             <div className="RegisterForm-FormControl">
                 {PARTICIPATION.map(participation => 
                     <div key={participation[0]}>
-                        <label>{getParticipationTitle(participation[0])}</label>
-                        <input 
+                        <Form.Label>{getParticipationTitle(participation[0])}</Form.Label>
+                        <Form.Check 
                             className="RegisterForm-Checkbox"
                             type="radio" 
                             name="participation" 
@@ -88,8 +90,8 @@ export function RegisterForm() {
                     </div>
                 )}  
             </div>
-            <button type="submit" >Отправить</button> 
-        </form>
+            <Button type="submit" >Отправить</Button> 
+        </Form>
     )
 }
 
